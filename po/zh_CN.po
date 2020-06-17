@@ -2500,8 +2500,8 @@ msgstr "返回鼠标位置的X坐标"
 msgid "red"
 msgstr "红色"
 
-#: TurtleArtActivity.py:895 TurtleArtActivity.py:1080
-#: TurtleArtActivity.py:1128 turtleblocks.py:433
+#: TurtleArtActivity.py:895 TurtleArtActivity.py:1080 TurtleArtActivity.py:1128
+#: turtleblocks.py:433
 msgid "Save as Logo"
 msgstr "另存为Logo"
 
@@ -2525,8 +2525,8 @@ msgstr "启用协作"
 msgid "Palette of sensor blocks"
 msgstr "传感器模板"
 
-#: TurtleArtActivity.py:901 TurtleArtActivity.py:1116
-#: TurtleArtActivity.py:1142 turtleblocks.py:427
+#: TurtleArtActivity.py:901 TurtleArtActivity.py:1116 TurtleArtActivity.py:1142
+#: turtleblocks.py:427
 msgid "Load plugin"
 msgstr "加载插件"
 
@@ -2800,8 +2800,7 @@ msgstr "右侧X坐标"
 msgid "light level detected by light sensor"
 msgstr "光线感应器侦测到的光照水平"
 
-#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104
-#: TurtleArt/taplugin.py:107
+#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104 TurtleArt/taplugin.py:107
 msgid "Plugin could not be installed."
 msgstr "插件不能安装。"
 
@@ -3356,8 +3355,7 @@ msgstr "放入"
 msgid "Hide blocks"
 msgstr "隐藏积木块"
 
-#: TurtleArtActivity.py:902 TurtleArtActivity.py:1119
-#: TurtleArtActivity.py:1145
+#: TurtleArtActivity.py:902 TurtleArtActivity.py:1119 TurtleArtActivity.py:1145
 msgid "Load Python block"
 msgstr "载入Python积木块"
 
@@ -3407,8 +3405,7 @@ msgstr "显示模板"
 msgid "saves a picture to the Sugar Journal"
 msgstr "保存图片到Sugar日志中"
 
-#: TurtleArtActivity.py:897 TurtleArtActivity.py:1087
-#: TurtleArtActivity.py:1135
+#: TurtleArtActivity.py:897 TurtleArtActivity.py:1087 TurtleArtActivity.py:1135
 msgid "Save snapshot"
 msgstr "保存屏幕截图"
 
@@ -3532,8 +3529,8 @@ msgstr "重复"
 msgid "wait for current video or audio to complete"
 msgstr "等待当前的视频或音频结束"
 
-#: TurtleArtActivity.py:894 TurtleArtActivity.py:1077
-#: TurtleArtActivity.py:1125 turtleblocks.py:431
+#: TurtleArtActivity.py:894 TurtleArtActivity.py:1077 TurtleArtActivity.py:1125
+#: turtleblocks.py:431
 msgid "Save as image"
 msgstr "另存为图片"
 
@@ -3674,8 +3671,8 @@ msgstr "错误"
 msgid "Please hit the Stop Button before making changes to your program"
 msgstr "对你的程序做修改前，请按“停止”按钮"
 
-#: TurtleArt/tawindow.py:1760 TurtleArtActivity.py:774
-#: TurtleArtActivity.py:921 turtleblocks.py:462
+#: TurtleArt/tawindow.py:1760 TurtleArtActivity.py:774 TurtleArtActivity.py:921
+#: turtleblocks.py:462
 msgid "Save stack"
 msgstr "保存堆"
 
@@ -3708,8 +3705,8 @@ msgstr "请等待"
 msgid "Starting connection..."
 msgstr "开始连接..."
 
-#: TurtleArtActivity.py:896 TurtleArtActivity.py:1083
-#: TurtleArtActivity.py:1131 turtleblocks.py:435
+#: TurtleArtActivity.py:896 TurtleArtActivity.py:1083 TurtleArtActivity.py:1131
+#: turtleblocks.py:435
 msgid "Save as Python"
 msgstr "另存为Python"
 

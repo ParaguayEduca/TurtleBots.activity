@@ -655,7 +655,7 @@ msgid "Configure hack pin for digital input."
 msgstr "Configura el pin como entrada digital."
 
 #. #-#-#-#-#  es.po (PACKAGE VERSION)  #-#-#-#-#
-#. TRANS: RoDI is the name of Paraguayan robot based on Arduino
+#. TRANS: Rodi is the name of Paraguayan robot based on Arduino
 #: ../taextras.py:220 ../taextras.py:561 ../taextras.py:614
 msgid "HIGH"
 msgstr "ALTO"
@@ -1319,8 +1319,7 @@ msgstr "Agrega un objeto círculo al proyecto."
 msgid "rectangle"
 msgstr "rectángulo"
 
-#: ../taextras.py:415
-#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:1049
+#: ../taextras.py:415 plugins/turtle_blocks_extras/turtle_blocks_extras.py:1049
 #, fuzzy
 msgid "width"
 msgstr ""
@@ -2005,108 +2004,108 @@ msgid "ERROR: The speed must be a value between -%(max)d and %(max)d"
 msgstr "ERROR: La velocidad debe ser un valor entre -%(max)d y %(max)d"
 
 #: ../taextras.py:624
-msgid "Palette for RoDI bots using Arduino"
-msgstr "Paleta de robots RoDI usando Arduino"
+msgid "Palette for Rodi bots using Arduino"
+msgstr "Paleta de robots Rodi usando Arduino"
 
 #: ../taextras.py:625
-msgid "refresh RoDI"
-msgstr "refrescar RoDI"
+msgid "refresh Rodi"
+msgstr "refrescar Rodi"
 
 #: ../taextras.py:626
-msgid "refresh the state of the RoDI palette and blocks"
-msgstr "actualiza el estado de la paleta y de los bloques RoDI"
+msgid "refresh the state of the Rodi palette and blocks"
+msgstr "actualiza el estado de la paleta y de los bloques Rodi"
 
 #: ../taextras.py:627
-msgid "RoDI"
-msgstr "RoDI"
+msgid "Rodi"
+msgstr "Rodi"
 
 #: ../taextras.py:628
-msgid "set current RoDI robot"
-msgstr "establece el robot RoDI actual"
+msgid "set current Rodi robot"
+msgstr "establece el robot Rodi actual"
 
 #: ../taextras.py:629
-msgid "number of RoDIs"
-msgstr "número de RoDIs"
+msgid "number of Rodis"
+msgstr "número de Rodis"
 
 #: ../taextras.py:630
-msgid "number of RoDI robots"
-msgstr "número de robots RoDI"
+msgid "number of Rodi robots"
+msgstr "número de robots Rodi"
 
 #: ../taextras.py:631
-msgid "RoDI name"
-msgstr "nombre RoDI"
+msgid "Rodi name"
+msgstr "nombre Rodi"
 
 #: ../taextras.py:632
-msgid "Get the name of a RoDI robot"
-msgstr "Obtiene el nombre de un robot RoDI"
+msgid "Get the name of a Rodi robot"
+msgstr "Obtiene el nombre de un robot Rodi"
 
 #: ../taextras.py:633
-msgid "move RoDI"
-msgstr "mover RoDI"
+msgid "move Rodi"
+msgstr "mover Rodi"
 
 #: ../taextras.py:636
-msgid "moves the RoDI motors at the specified speed"
-msgstr "mueve los motores del RoDI a la velocidad especificada"
+msgid "moves the Rodi motors at the specified speed"
+msgstr "mueve los motores del Rodi a la velocidad especificada"
 
 #: ../taextras.py:637
-msgid "stop RoDI"
-msgstr "detener RoDI"
+msgid "stop Rodi"
+msgstr "detener Rodi"
 
 #: ../taextras.py:638
-msgid "stop the RoDI robot"
-msgstr "detiene al robot RoDI"
+msgid "stop the Rodi robot"
+msgstr "detiene al robot Rodi"
 
 #: ../taextras.py:639
-msgid "forward RoDI"
-msgstr "adelante RoDI"
+msgid "forward Rodi"
+msgstr "adelante Rodi"
 
 #: ../taextras.py:640
-msgid "move the RoDI robot forward"
-msgstr "mueve el robot RoDI hacia adelante"
+msgid "move the Rodi robot forward"
+msgstr "mueve el robot Rodi hacia adelante"
 
 #: ../taextras.py:641
-msgid "left RoDI"
-msgstr "izquierda RoDI"
+msgid "left Rodi"
+msgstr "izquierda Rodi"
 
 #: ../taextras.py:642
-msgid "turn the RoDI robot at left"
-msgstr "gira el robot RoDI hacia la izquierda"
+msgid "turn the Rodi robot at left"
+msgstr "gira el robot Rodi hacia la izquierda"
 
 #: ../taextras.py:643
-msgid "right RoDI"
-msgstr "derecha RoDI"
+msgid "right Rodi"
+msgstr "derecha Rodi"
 
 #: ../taextras.py:644
-msgid "turn the RoDI robot at right"
-msgstr "gira el robot RoDI hacia la derecha"
+msgid "turn the Rodi robot at right"
+msgstr "gira el robot Rodi hacia la derecha"
 
 #: ../taextras.py:645
-msgid "backward RoDI"
-msgstr "atrás RoDI"
+msgid "backward Rodi"
+msgstr "atrás Rodi"
 
 #: ../taextras.py:646
-msgid "move the RoDI robot backward"
-msgstr "mueve el robot RoDI hacia atrás"
+msgid "move the Rodi robot backward"
+msgstr "mueve el robot Rodi hacia atrás"
 
 #: ../taextras.py:647
-msgid "distance RoDI"
-msgstr "distancia RoDI"
+msgid "distance Rodi"
+msgstr "distancia Rodi"
 
 #: ../taextras.py:648
 msgid "returns the distance as a value between 0 and 1"
 msgstr "devuelve la distancia como un valor entre 0 y 1"
 
 #: ../taextras.py:649
-msgid "RoDI sense left"
-msgstr "sensor izquierdo RoDI"
+msgid "left sensor Rodi"
+msgstr "sensor izquierdo Rodi"
 
 #: ../taextras.py:650
 msgid "returns the left line sensor as a value between 0 and 1"
 msgstr "devuelve el sensor de línea izquierdo como un valor entre 0 y 1"
 
 #: ../taextras.py:651
-msgid "RoDI sense right"
-msgstr "sensor derecho RoDI"
+msgid "right sensor Rodi"
+msgstr "sensor derecho Rodi"
 
 #: ../taextras.py:652
 msgid "returns the right line sensor as a value between 0 and 1"
@@ -2114,24 +2113,8 @@ msgstr "devuelve el sensor de línea derecho como un valor entre 0 y 1"
 
 #: ../taextras.py:654
 #, python-format
-msgid "Not found RoDI %s"
-msgstr "No se encontró RoDI %s"
-
-#: ../taextras.py:656
-msgid "RoDI sense light"
-msgstr "sensor de luz RoDI"
-
-#: ../taextras.py:657
-msgid "RoDI see"
-msgstr "RoDI ve"
-
-#: ../taextras.py:658
-msgid "RoDI play"
-msgstr "RoDI reproduce"
-
-#: ../taextras.py:659
-msgid "returns the distance as a value between 0 and 100 cm"
-msgstr "devuelve la distancia como un valor entre 0 y 100 cm"
+msgid "Not found Rodi %s"
+msgstr "No se encontró Rodi %s"
 
 #. TRANS: Fischer is a shortest of fischertechnik robot
 #: ../taextras.py:660
@@ -2205,18 +2188,6 @@ msgstr "actuador"
 #: ../taextras.py:684
 msgid "turn an actuator"
 msgstr "enciende un actuador"
-
-#: ../taextras.py:686
-msgid "returns the left line sensor as a value between 0 and 1023"
-msgstr "devuelve el sensor de línea izquierda como un valor entre 0 y 1023"
-
-#: ../taextras.py:687
-msgid "returns the right line sensor as a value between 0 and 1023"
-msgstr "devuelve el sensor de línea derecha como un valor entre 0 y 1023"
-
-#: ../taextras.py:688
-msgid "returns the ambient light as a value between 0 and 1023"
-msgstr "devuelve la luz del ambiente como un valor entre 0 y 1023"
 
 #. Palette to control X11 events
 #: ../taextras.py:689
@@ -2530,18 +2501,6 @@ msgstr "abrirPrograma"
 #: ../taextras.py:768
 msgid "open program"
 msgstr "abrir programa"
-
-#: ../taextras.py:769
-msgid "make RoDI play a not for a specified duration"
-msgstr "hace reproducir a RoDI una nota durante una duracion especificada"
-
-#: ../taextras.py:770
-msgid "set the color of the pixel"
-msgstr "define el color del pixel"
-
-#: ../taextras.py:771
-msgid "set the state of the led (on = 1 | off = 0"
-msgstr "define el estado del led (prendido = 1 | apagado = 0)"
 
 #. #-#-#-#-#  es.po (PACKAGE VERSION)  #-#-#-#-#
 #. TRANS: plugin to control an ExpEyes device
@@ -2918,49 +2877,42 @@ msgstr "Parar"
 msgid "Share selected blocks"
 msgstr "Compartir bloques seleccionados"
 
-#: TurtleArtActivity.py:940 TurtleArtActivity.py:1143
-#: TurtleArtActivity.py:1206
+#: TurtleArtActivity.py:940 TurtleArtActivity.py:1143 TurtleArtActivity.py:1206
 msgid "Save as image"
 msgstr "Guardar como imagen"
 
-#: TurtleArtActivity.py:943 TurtleArtActivity.py:1146
-#: TurtleArtActivity.py:1209
+#: TurtleArtActivity.py:943 TurtleArtActivity.py:1146 TurtleArtActivity.py:1209
 msgid "Save as icon"
 msgstr "Guardar como icono"
 
 #. TRANS: ODP is Open Office presentation
-#: TurtleArtActivity.py:948 TurtleArtActivity.py:1150
-#: TurtleArtActivity.py:1213
+#: TurtleArtActivity.py:948 TurtleArtActivity.py:1150 TurtleArtActivity.py:1213
 msgid "Save as ODP"
 msgstr "Guardar como ODP"
 
-#: TurtleArtActivity.py:953 TurtleArtActivity.py:1161
-#: TurtleArtActivity.py:1222
+#: TurtleArtActivity.py:953 TurtleArtActivity.py:1161 TurtleArtActivity.py:1222
 msgid "Save as Logo"
 msgstr "Guardar como Logo"
 
-#: TurtleArtActivity.py:954 TurtleArtActivity.py:1164
-#: TurtleArtActivity.py:1225
+#: TurtleArtActivity.py:954 TurtleArtActivity.py:1164 TurtleArtActivity.py:1225
 msgid "Save as Python"
 msgstr "Guardar como Python"
 
-#: TurtleArtActivity.py:955 TurtleArtActivity.py:1168
-#: TurtleArtActivity.py:1229
+#: TurtleArtActivity.py:955 TurtleArtActivity.py:1168 TurtleArtActivity.py:1229
 msgid "Save snapshot"
 msgstr "Guardar instantánea"
 
-#: TurtleArtActivity.py:956 TurtleArtActivity.py:1192
-#: TurtleArtActivity.py:1231 turtleblocks.py:436
+#: TurtleArtActivity.py:956 TurtleArtActivity.py:1192 TurtleArtActivity.py:1231
+#: turtleblocks.py:436
 msgid "Add project"
 msgstr "Agregar proyecto"
 
-#: TurtleArtActivity.py:959 TurtleArtActivity.py:1197
-#: TurtleArtActivity.py:1237 turtleblocks.py:437
+#: TurtleArtActivity.py:959 TurtleArtActivity.py:1197 TurtleArtActivity.py:1237
+#: turtleblocks.py:437
 msgid "Load plugin"
 msgstr "Cargar plugin"
 
-#: TurtleArtActivity.py:960 TurtleArtActivity.py:1200
-#: TurtleArtActivity.py:1240
+#: TurtleArtActivity.py:960 TurtleArtActivity.py:1200 TurtleArtActivity.py:1240
 msgid "Load Python block"
 msgstr "Cargar bloque Python"
 
@@ -3068,8 +3020,7 @@ msgstr "ODP"
 msgid "Logo"
 msgstr "Logo"
 
-#: turtleblocks.py:458
-#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:654
+#: turtleblocks.py:458 plugins/turtle_blocks_extras/turtle_blocks_extras.py:654
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:669
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:685
 msgid "Python"
@@ -3499,7 +3450,11 @@ msgid "RGB color under the turtle is pushed to the stack"
 msgstr "Se envia a la pila el color RGB bajo la tortuga"
 
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:422
-msgid "turtle sees\""
+msgid "turtle sees"
+msgstr "la tortuga ve"
+
+#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:425
+msgid "returns the color that the turtle \"sees\""
 msgstr "muestra el color que \"ve\" la tortuga"
 
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:437
@@ -4798,8 +4753,7 @@ msgstr "el bloque no es exportable"
 msgid "error while exporting block"
 msgstr "error mientras se exportaba el bloque"
 
-#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:103
-#: TurtleArt/taplugin.py:105
+#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:103 TurtleArt/taplugin.py:105
 msgid "Plugin could not be installed."
 msgstr "El plugin no puede ser instalado."
 

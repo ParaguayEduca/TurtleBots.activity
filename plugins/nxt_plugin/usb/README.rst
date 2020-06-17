@@ -64,6 +64,18 @@ install PyUSB::
 Just bear in mind that you still follow to procedure to install the
 libusb library.
 
+For pure Debian variants
+------------------------
+
+For pure Debian systems you are advised to install either the
+python-usb or python3-usb packages.  These are prebuilt based on
+PyUSB and libusb-1.0::
+
+    $ sudo apt-get install python-usb python3-usb
+
+You may wish to get the backported version 1.0, since PyUSB
+doesn't depend upon any truly unstable packages.
+
 Installing PyUSB on Windows
 ===========================
 
@@ -80,7 +92,7 @@ Remember that you need libusb (1.0 or 0.1) or OpenUSB running on your
 system. For Windows users, libusb 0.1 is provided through
 `libusb-win32 <http://libusb-win32.sourceforge.net>`_
 package. Check the libusb website for updates
-(http://www.libusb.org).
+(http://www.libusb.info).
 
 Reporting bugs/Submitting patches
 =================================

@@ -23,9 +23,10 @@
 import ast
 from gettext import gettext as _
 from os import linesep
+from os import path, pardir
 import re
 import traceback
-import util.codegen as codegen
+from .util import codegen
 
 # from ast_pprint import * # only used for debugging, safe to comment out
 
@@ -37,7 +38,7 @@ from .tawindow import plugins_in_use
 
 
 _SETUP_CODE_START = """\
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 _INSTALL_PATH = '/usr/share/sugar/activities/TurtleArt.activity'
@@ -46,23 +47,29 @@ _ALTERNATIVE_INSTALL_PATH = \\
 
 import os, sys, dbus
 paths = []
+
 paths.append('../%s.activity')
 paths.append(os.path.expanduser('~') + '/Activities/%s.activity')
 paths.append('/usr/share/sugar/activities/%s.activity')
 paths.append('/usr/local/share/sugar/activities/%s.activity')
 paths.append(
     '/home/broot/sugar-build/build/install/share/sugar/activities/%s.activity')
+""" + \
+    "paths.append('%s')" % \
+    path.abspath(path.join(path.dirname(__file__), pardir)) + \
+    """\
 
 flag = False
 for path in paths:
     for activity in ['TurtleBots', 'TurtleBlocks']:
-        p = path % activity
-        if os.path.exists(p):
+        p = (path % activity) if "%" in path else path
+
+        if os.path.exists(p) and p not in sys.path:
             flag = True
             sys.path.insert(0, p)
 
 if not flag:
-    print 'This code require the Turtle Blocks/Bots activity to be installed.'
+    print('This code require the Turtle Blocks/Bots activity to be installed.')
     exit(1)
 
 from time import *
@@ -77,29 +84,34 @@ tw = get_tw()
 BOX = {}
 ACTION = {}
 
-
+global_objects = None
+turtles = None
+canvas = None
+logo = None
 """
+
 _SETUP_CODE_END = """\
 
 if __name__ == '__main__':
     tw.lc.start_time = time()
     tw.lc.icall(start)
-    gobject.idle_add(tw.lc.doevalstep)
-    gtk.main()
+    GObject.idle_add(tw.lc.doevalstep)
+    Gtk.main()
 """
 _ACTION_STACK_START = """\
 def %s():
 """
 _START_STACK_START_ADD = """\
     tw.start_plugins()
+    global global_objects,turtles,canvas,logo
     global_objects = tw.get_global_objects()
-"""
-_ACTION_STACK_PREAMBLE = """\
     turtles = tw.turtles
-    turtle = turtles.get_active_turtle()
     canvas = tw.canvas
     logo = tw.lc
-
+    logo.boxes = BOX
+"""
+_ACTION_STACK_PREAMBLE = """\
+    turtle = turtles.get_active_turtle()
 """
 _ACTION_STACK_END = """\
 ACTION["%s"] = %s
@@ -115,7 +127,7 @@ def save_python(tw):
     for block in all_blocks:
         blocks_name.append(block.name)
 
-    if not 'start' in blocks_name:
+    if 'start' not in blocks_name:
         return None
 
     blocks_covered = set()
@@ -128,6 +140,12 @@ def save_python(tw):
             blocks_covered.update(set(block_stack))
 
     snippets = [_SETUP_CODE_START]
+
+    for k in plugins_in_use:
+        snippets.append('%s = None\n' % (k.lower(),))
+
+    snippets.append('\n')
+
     for block in tops_of_stacks:
         stack_name = get_stack_name(block)
         if stack_name:
@@ -135,7 +153,7 @@ def save_python(tw):
             snippets.append(pythoncode)
             snippets.append(linesep)
     snippets.append(_SETUP_CODE_END)
-    return "".join(snippets)
+    return ''.join(snippets)
 
 
 def _action_stack_to_python(block, tw, name='start'):
@@ -144,7 +162,7 @@ def _action_stack_to_python(block, tw, name='start'):
 
     if isinstance(name, int):
         name = float(name)
-    if not isinstance(name, basestring):
+    if not isinstance(name, str):
         name = str(name)
 
     # traverse the block stack and get the AST for every block
@@ -161,12 +179,13 @@ def _action_stack_to_python(block, tw, name='start'):
     if name == 'start':
         pre_preamble = _START_STACK_START_ADD
         for k in plugins_in_use:
+            pre_preamble += '    global %s\n' % (k.lower(),)
             pre_preamble += "    %s = global_objects['%s']\n" % (k.lower(), k)
     else:
         pre_preamble = ''
     generated_code = _indent(generated_code, 1)
     if generated_code.endswith(linesep):
-        newline = ""
+        newline = ''
     else:
         newline = linesep
     snippets = [_ACTION_STACK_START % (name_id),
@@ -175,7 +194,7 @@ def _action_stack_to_python(block, tw, name='start'):
                 generated_code,
                 newline,
                 _ACTION_STACK_END % (name, name_id)]
-    return "".join(snippets)
+    return ''.join(snippets)
 
 
 def _walk_action_stack(top_block, lc, convert_me=True):
@@ -204,7 +223,7 @@ def _walk_action_stack(top_block, lc, convert_me=True):
         prim = lc.get_prim_callable(block.primitive)
         # fail gracefully if primitive is not a Primitive object
         if not isinstance(prim, Primitive):
-            raise PyExportError(_("block is not exportable"), block=block)
+            raise PyExportError(_('block is not exportable'), block=block)
         return prim
 
     prim = _get_prim(block)
@@ -223,7 +242,7 @@ def _walk_action_stack(top_block, lc, convert_me=True):
                     new_ast = prim.get_ast(*arg_asts)
                 except ValueError:
                     traceback.print_exc()
-                    raise PyExportError(_("error while exporting block"),
+                    raise PyExportError(_('error while exporting block'),
                                         block=block)
                 if isinstance(new_ast, (list, tuple)):
                     ast_list.extend(new_ast)
@@ -260,8 +279,8 @@ def _walk_action_stack(top_block, lc, convert_me=True):
                 # body of conditional or loop
                 new_arg_asts = _walk_action_stack(conn, lc,
                                                   convert_me=convert_me)
-                if (prim == LogoCode.prim_loop and
-                        not isinstance(new_arg_asts[-1], ast.Yield)):
+                if prim == LogoCode.prim_loop and not \
+                        isinstance(new_arg_asts[-1], ast.Yield):
                     new_arg_asts.append(ast_yield_true())
                 arg_asts.append(new_arg_asts)
             else:
@@ -278,10 +297,10 @@ def _walk_action_stack(top_block, lc, convert_me=True):
 def _make_identifier(name):
     """ Turn name into a Python identifier name by replacing illegal
     characters """
-    replaced = re.sub(PAT_IDENTIFIER_ILLEGAL_CHAR, "_", name)
+    replaced = re.sub(PAT_IDENTIFIER_ILLEGAL_CHAR, '_', name)
     # TODO find better strategy to avoid number at beginning
-    if re.match("[0-9]", replaced):
-        replaced = "_" + replaced
+    if re.match('[0-9]', replaced):
+        replaced = '_' + replaced
     return replaced
 
 

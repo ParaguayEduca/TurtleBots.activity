@@ -2292,8 +2292,7 @@ msgstr "छापें"
 msgid "returns mouse x coordinate"
 msgstr "रिटर्न माउस एक्स समन्वय"
 
-#: TurtleArtActivity.py:953 TurtleArtActivity.py:1161
-#: TurtleArtActivity.py:1222
+#: TurtleArtActivity.py:953 TurtleArtActivity.py:1161 TurtleArtActivity.py:1222
 msgid "Save as Logo"
 msgstr "लोगो के रूप में सहेजें"
 
@@ -2790,8 +2789,7 @@ msgid ""
 msgstr ""
 "टर्टल को एक्स निर्देशांक, वाय निर्देशांक; (0, 0) पर खिसकाता है जो कि स्क्रीन के केंद्र में है."
 
-#: turtleblocks.py:458
-#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:654
+#: turtleblocks.py:458 plugins/turtle_blocks_extras/turtle_blocks_extras.py:654
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:669
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:685
 msgid "Python"
@@ -3057,8 +3055,7 @@ msgstr "में भंडारित करें"
 msgid "Hide blocks"
 msgstr "खण्ड छुपाएँ"
 
-#: TurtleArtActivity.py:960 TurtleArtActivity.py:1200
-#: TurtleArtActivity.py:1240
+#: TurtleArtActivity.py:960 TurtleArtActivity.py:1200 TurtleArtActivity.py:1240
 msgid "Load Python block"
 msgstr "लोड Python ब्लॉक"
 
@@ -3109,8 +3106,7 @@ msgstr "रंगपट्टिका दिखाएँ"
 msgid "saves a picture to the Sugar Journal"
 msgstr "सुगर दैनिकी में एक चित्र सहेजता है"
 
-#: TurtleArtActivity.py:955 TurtleArtActivity.py:1168
-#: TurtleArtActivity.py:1229
+#: TurtleArtActivity.py:955 TurtleArtActivity.py:1168 TurtleArtActivity.py:1229
 msgid "Save snapshot"
 msgstr "स्नेपशॉट सहेजें"
 
@@ -3222,8 +3218,7 @@ msgstr "दोहराएँ"
 msgid "wait for current video or audio to complete"
 msgstr "वर्तमान वीडियो या ऑडियो को पूरा करने के लिए इंतजार"
 
-#: TurtleArtActivity.py:940 TurtleArtActivity.py:1143
-#: TurtleArtActivity.py:1206
+#: TurtleArtActivity.py:940 TurtleArtActivity.py:1143 TurtleArtActivity.py:1206
 msgid "Save as image"
 msgstr "फ़ोटो के रूप में सहेजें"
 
@@ -3346,29 +3341,26 @@ msgstr "ढेर नष्ट करें"
 msgid "Share selected blocks"
 msgstr "चयनित ब्लॉकों को शेयर करें"
 
-#: TurtleArtActivity.py:943 TurtleArtActivity.py:1146
-#: TurtleArtActivity.py:1209
+#: TurtleArtActivity.py:943 TurtleArtActivity.py:1146 TurtleArtActivity.py:1209
 msgid "Save as icon"
 msgstr "आइकन के रूप में सहेजें"
 
 #. TRANS: ODP is Open Office presentation
-#: TurtleArtActivity.py:948 TurtleArtActivity.py:1150
-#: TurtleArtActivity.py:1213
+#: TurtleArtActivity.py:948 TurtleArtActivity.py:1150 TurtleArtActivity.py:1213
 msgid "Save as ODP"
 msgstr "ODP के रूप में सहेजें"
 
-#: TurtleArtActivity.py:954 TurtleArtActivity.py:1164
-#: TurtleArtActivity.py:1225
+#: TurtleArtActivity.py:954 TurtleArtActivity.py:1164 TurtleArtActivity.py:1225
 msgid "Save as Python"
 msgstr "पाइथन भाषा के रूप में सहेजें"
 
-#: TurtleArtActivity.py:956 TurtleArtActivity.py:1192
-#: TurtleArtActivity.py:1231 turtleblocks.py:436
+#: TurtleArtActivity.py:956 TurtleArtActivity.py:1192 TurtleArtActivity.py:1231
+#: turtleblocks.py:436
 msgid "Add project"
 msgstr "परियोजना को जोड़ें"
 
-#: TurtleArtActivity.py:959 TurtleArtActivity.py:1197
-#: TurtleArtActivity.py:1237 turtleblocks.py:437
+#: TurtleArtActivity.py:959 TurtleArtActivity.py:1197 TurtleArtActivity.py:1237
+#: turtleblocks.py:437
 msgid "Load plugin"
 msgstr "प्लगिन लोड करें"
 
@@ -3795,8 +3787,7 @@ msgstr "ब्लॉक निर्यात योग्य नहीं ह�
 msgid "error while exporting block"
 msgstr "ब्लॉक निर्यात करते समय त्रुटि उत्पन्न हुई है"
 
-#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:103
-#: TurtleArt/taplugin.py:105
+#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:103 TurtleArt/taplugin.py:105
 msgid "Plugin could not be installed."
 msgstr "प्लगइन स्थापित नहीं किया जा सकता है।"
 
