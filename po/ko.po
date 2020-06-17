@@ -2576,8 +2576,8 @@ msgstr ""
 msgid "Select blocks to share"
 msgstr ""
 
-#: TurtleArt/tawindow.py:1630 TurtleArtActivity.py:656
-#: TurtleArtActivity.py:805 turtleblocks.py:412
+#: TurtleArt/tawindow.py:1630 TurtleArtActivity.py:656 TurtleArtActivity.py:805
+#: turtleblocks.py:412
 msgid "Save stack"
 msgstr ""
 

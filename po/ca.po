@@ -2039,52 +2039,45 @@ msgstr "Atura"
 msgid "Share selected blocks"
 msgstr "Comparteix els blocs seleccionats"
 
-#: TurtleArtActivity.py:940 TurtleArtActivity.py:1143
-#: TurtleArtActivity.py:1206
+#: TurtleArtActivity.py:940 TurtleArtActivity.py:1143 TurtleArtActivity.py:1206
 msgid "Save as image"
 msgstr "Desa-ho com una imatge"
 
-#: TurtleArtActivity.py:943 TurtleArtActivity.py:1146
-#: TurtleArtActivity.py:1209
+#: TurtleArtActivity.py:943 TurtleArtActivity.py:1146 TurtleArtActivity.py:1209
 msgid "Save as icon"
 msgstr "Desa-ho com una icona"
 
 # well-spelled: ODP
 #. TRANS: ODP is Open Office presentation
-#: TurtleArtActivity.py:948 TurtleArtActivity.py:1150
-#: TurtleArtActivity.py:1213
+#: TurtleArtActivity.py:948 TurtleArtActivity.py:1150 TurtleArtActivity.py:1213
 msgid "Save as ODP"
 msgstr "Desa-ho com un ODP"
 
-#: TurtleArtActivity.py:953 TurtleArtActivity.py:1161
-#: TurtleArtActivity.py:1222
+#: TurtleArtActivity.py:953 TurtleArtActivity.py:1161 TurtleArtActivity.py:1222
 msgid "Save as Logo"
 msgstr "Desa-ho com un logotipus"
 
 # well-spelled: Python
-#: TurtleArtActivity.py:954 TurtleArtActivity.py:1164
-#: TurtleArtActivity.py:1225
+#: TurtleArtActivity.py:954 TurtleArtActivity.py:1164 TurtleArtActivity.py:1225
 msgid "Save as Python"
 msgstr "Desa-ho com un Python"
 
-#: TurtleArtActivity.py:955 TurtleArtActivity.py:1168
-#: TurtleArtActivity.py:1229
+#: TurtleArtActivity.py:955 TurtleArtActivity.py:1168 TurtleArtActivity.py:1229
 msgid "Save snapshot"
 msgstr "Desa la captura de pantalla"
 
-#: TurtleArtActivity.py:956 TurtleArtActivity.py:1192
-#: TurtleArtActivity.py:1231 turtleblocks.py:436
+#: TurtleArtActivity.py:956 TurtleArtActivity.py:1192 TurtleArtActivity.py:1231
+#: turtleblocks.py:436
 msgid "Add project"
 msgstr "Afegeix un projecte"
 
-#: TurtleArtActivity.py:959 TurtleArtActivity.py:1197
-#: TurtleArtActivity.py:1237 turtleblocks.py:437
+#: TurtleArtActivity.py:959 TurtleArtActivity.py:1197 TurtleArtActivity.py:1237
+#: turtleblocks.py:437
 msgid "Load plugin"
 msgstr "Carrega un complement"
 
 # well-spelled: Python
-#: TurtleArtActivity.py:960 TurtleArtActivity.py:1200
-#: TurtleArtActivity.py:1240
+#: TurtleArtActivity.py:960 TurtleArtActivity.py:1200 TurtleArtActivity.py:1240
 msgid "Load Python block"
 msgstr "Carrega un bloc de Python"
 
@@ -2201,8 +2194,7 @@ msgid "Logo"
 msgstr "Logo"
 
 # well-spelled: Python
-#: turtleblocks.py:458
-#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:654
+#: turtleblocks.py:458 plugins/turtle_blocks_extras/turtle_blocks_extras.py:654
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:669
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:685
 msgid "Python"
@@ -3825,8 +3817,7 @@ msgstr "no es pot exportar el bloc"
 msgid "error while exporting block"
 msgstr "s'ha produït un error en exportar el bloc"
 
-#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:103
-#: TurtleArt/taplugin.py:105
+#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:103 TurtleArt/taplugin.py:105
 msgid "Plugin could not be installed."
 msgstr "No s'ha pogut instal·lar el connector."
 

@@ -20,6 +20,7 @@
 # THE SOFTWARE.
 
 import os
+import tempfile
 from random import uniform
 from gettext import gettext as _
 
@@ -85,9 +86,9 @@ XO4 = 'xo4'
 UNKNOWN = 'unknown'
 PASTE_OFFSET = 20
 TMP_SVG_PATH = os.path.join(
-    '/tmp', 'turtle-blocks-%d.svg' % int(uniform(0, 10000)))
+    tempfile.gettempdir(), 'turtle-blocks-%d.svg' % int(uniform(0, 10000)))
 TMP_ODP_PATH = os.path.join(
-    '/tmp', 'turtle-blocks-%d.odp' % int(uniform(0, 10000)))
+    tempfile.gettempdir(), 'turtle-blocks-%d.odp' % int(uniform(0, 10000)))
 
 ARG_MUST_BE_NUMBER = ['product2', 'minus2', 'random', 'remainder2', 'forward',
                       'back', 'left', 'right', 'arc', 'setxy2', 'setxy',
@@ -232,9 +233,10 @@ class Color(object):
         * another Color with the same color, shade, and gray values
         * an integer, float, or long that equals int(self) """
         if isinstance(other, Color):
-            return (self.color == other.color and self.shade == other.shade
-                    and self.gray == other.gray)
-        elif isinstance(other, (int, float, long)):
+            return self.color == other.color and \
+                self.shade == other.shade and \
+                self.gray == other.gray
+        elif isinstance(other, (int, float)):
             return int(self) == other
         # * a basestring that equals str(self)
         # elif isinstance(other, basestring):
@@ -249,9 +251,9 @@ class Color(object):
         * a string that appears before the underscore in the ASCII table """
         if isinstance(other, Color):
             return str(self) < str(other)
-        elif isinstance(other, (int, float, long)):
+        elif isinstance(other, (int, float)):
             return int(self) < other
-        elif isinstance(other, basestring):
+        elif isinstance(other, str):
             return '_' + str(self) < other
         else:
             return False
@@ -263,9 +265,9 @@ class Color(object):
         * a string that appears after the underscore in the ASCII table """
         if isinstance(other, Color):
             return str(self) > str(other)
-        elif isinstance(other, (int, float, long)):
+        elif isinstance(other, (int, float)):
             return int(self) > other
-        elif isinstance(other, basestring):
+        elif isinstance(other, str):
             return '_' + str(self) > other
         else:
             return False

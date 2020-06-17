@@ -3110,8 +3110,8 @@ msgstr "Mira, amaraq programanta huknirachispaqa Sayachiy nisqa q'apiriy"
 msgid "Select blocks to share"
 msgstr "Qukunapaq bloques nisqakunata akllay"
 
-#: TurtleArt/tawindow.py:1630 TurtleArtActivity.py:656
-#: TurtleArtActivity.py:805 turtleblocks.py:412
+#: TurtleArt/tawindow.py:1630 TurtleArtActivity.py:656 TurtleArtActivity.py:805
+#: turtleblocks.py:412
 msgid "Save stack"
 msgstr "Pila nisqata waqaychay"
 

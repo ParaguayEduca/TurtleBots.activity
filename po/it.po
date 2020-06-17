@@ -2228,8 +2228,8 @@ msgstr ""
 msgid "print"
 msgstr "stampa"
 
-#: TurtleArtActivity.py:895 TurtleArtActivity.py:1080
-#: TurtleArtActivity.py:1128 turtleblocks.py:433
+#: TurtleArtActivity.py:895 TurtleArtActivity.py:1080 TurtleArtActivity.py:1128
+#: turtleblocks.py:433
 msgid "Save as Logo"
 msgstr "Salva come Logo"
 
@@ -2952,8 +2952,7 @@ msgstr "mostra pannello"
 msgid "saves a picture to the Sugar Journal"
 msgstr "Salva una immagine nel Diario di Sugar"
 
-#: TurtleArtActivity.py:897 TurtleArtActivity.py:1087
-#: TurtleArtActivity.py:1135
+#: TurtleArtActivity.py:897 TurtleArtActivity.py:1087 TurtleArtActivity.py:1135
 msgid "Save snapshot"
 msgstr "Salva snapshot"
 
@@ -3062,8 +3061,8 @@ msgstr "polare"
 msgid "repeat"
 msgstr "ripeti"
 
-#: TurtleArtActivity.py:894 TurtleArtActivity.py:1077
-#: TurtleArtActivity.py:1125 turtleblocks.py:431
+#: TurtleArtActivity.py:894 TurtleArtActivity.py:1077 TurtleArtActivity.py:1125
+#: turtleblocks.py:431
 msgid "Save as image"
 msgstr "Salva come immagine"
 
@@ -3246,8 +3245,7 @@ msgid "Please restart Turtle Art in order to use the plugin."
 msgstr ""
 "Per favore, diavvia Turle Art per utilizzare il componente addizionale."
 
-#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104
-#: TurtleArt/taplugin.py:107
+#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104 TurtleArt/taplugin.py:107
 msgid "Plugin could not be installed."
 msgstr "Il componente addizionale non può essere installato."
 
@@ -3280,8 +3278,8 @@ msgstr ""
 msgid "Select blocks to share"
 msgstr "Seleziona i blocchi da condividere"
 
-#: TurtleArt/tawindow.py:1760 TurtleArtActivity.py:774
-#: TurtleArtActivity.py:921 turtleblocks.py:462
+#: TurtleArt/tawindow.py:1760 TurtleArtActivity.py:774 TurtleArtActivity.py:921
+#: turtleblocks.py:462
 msgid "Save stack"
 msgstr "Salva la pila"
 
@@ -3335,8 +3333,8 @@ msgstr "Coordinate Metriche"
 msgid "Load example"
 msgstr "Carica esempio"
 
-#: TurtleArtActivity.py:896 TurtleArtActivity.py:1083
-#: TurtleArtActivity.py:1131 turtleblocks.py:435
+#: TurtleArtActivity.py:896 TurtleArtActivity.py:1083 TurtleArtActivity.py:1131
+#: turtleblocks.py:435
 msgid "Save as Python"
 msgstr "Salva come Python"
 
@@ -3344,13 +3342,12 @@ msgstr "Salva come Python"
 msgid "Load project"
 msgstr "Carica progetto"
 
-#: TurtleArtActivity.py:901 TurtleArtActivity.py:1116
-#: TurtleArtActivity.py:1142 turtleblocks.py:427
+#: TurtleArtActivity.py:901 TurtleArtActivity.py:1116 TurtleArtActivity.py:1142
+#: turtleblocks.py:427
 msgid "Load plugin"
 msgstr "Carica componente addizionale"
 
-#: TurtleArtActivity.py:902 TurtleArtActivity.py:1119
-#: TurtleArtActivity.py:1145
+#: TurtleArtActivity.py:902 TurtleArtActivity.py:1119 TurtleArtActivity.py:1145
 msgid "Load Python block"
 msgstr "Carica blocco Python"
 

@@ -28,6 +28,7 @@ import sys
 import time
 import gconf
 import types
+import gtk.gdk
 
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
@@ -40,6 +41,7 @@ from TurtleArt.taprimitive import Primitive, ArgSlot, ConstantArg, or_
 from TurtleArt.tatype import TYPE_INT, TYPE_NUMBER, TYPE_COLOR, TYPE_STRING
 from events import Events
 from TurtleArt.taconstants import CONSTANTS, MACROS
+from TurtleArt.tabasics import Palettes
 
 
 import logging
@@ -61,6 +63,7 @@ class Xevents(Plugin):
         self._last_event = 0
         self._program_name = ''
         self._defaults ={} # local default values for conf keys
+        self._last_button_state = 0
 
     def setPause(self):
         self.pause = True
@@ -102,26 +105,41 @@ class Xevents(Plugin):
 
 
         global MACROS
-        '''MACROS['setLineColorRGBmacro'] = [[0, 'setLineColorRGB', 0, 0, [None, 1, 2, 3, None]],
-                                          [1, ['number', 0], 0, 0, [0, None]],
-                                          [2, ['number', 0], 0, 0, [0, None]],
-                                          [3, ['number', 0], 0, 0, [0, None]]
-                                         ]
-        '''
-
-        MACROS['setLineWidthAndHeightmacro'] = [[0, 'setLineWidthAndHeight', 0, 0, [None, 1, 2, None]],
+        MACROS['setLineWidthAndHeightMacro'] = [[0, 'setLineWidthAndHeight', 0, 0, [None, 1, 2, None]],
                                                 [1, ['number', 0], 0, 0, [0, None]],
                                                 [2, ['number', 0], 0, 0, [0, None]]
                                                ]
-        
+        MACROS['combineKeysMacro'] = [[0, 'combineKeys', 0, 0, [None, None, None, None]]]
+        MACROS['debounceMacro'] = [[0, 'debounce', 0, 0, [None, 1, None, None]],
+                                    [1, ['string', _('name')], 0, 0, [0, None]]
+                                  ]
+        MACROS['edgeDetectorMacro'] = [[0, 'edgeDetector', 0, 0, [None, 1, None, None]],
+                                    [1, ['string', _('name')], 0, 0, [0, None]]
+                                  ]
+        MACROS['saveValueMacro'] = [[0, 'saveValue', 0, 0, [None, 1, None, None]],
+                                    [1, ['string', _('key')], 0, 0, [0, None]]
+                                  ]
+        MACROS['defaultValueMacro'] = [[0, 'defaultValue', 0, 0, [None, 1, None, None]],
+                                    [1, ['string', _('key')], 0, 0, [0, None]]
+                                  ]
+        MACROS['getColorAtMacro'] = [[0, 'getColorAt', 0, 0, [None, 1, 2, None]],
+                                    [1, ['number', 0], 0, 0, [0, None]],
+                                    [2, ['number', 0], 0, 0, [0, None]]
+                                    ]
+  
+        # Palettes
 
         palette = make_palette('xlib-bots',
                                colors=["#FF6060", "#A06060"],
                                help_string=_('Palette of X11 event blocks'))
-        # Extra palette
+        
         palette2 = make_palette('xlib-bots-extra', 
                                 colors=["#FF6060", "#A06060"], 
                                 help_string=_('Palette of X11 extra event blocks'))
+
+        palette3 = make_palette('xlib-bots-prog', 
+                                colors=["#FF6060", "#A06060"], 
+                                help_string=_('Palette of X11 extra program blocks'))
 
 
         palette.add_block('setX11mouse',
@@ -333,31 +351,6 @@ class Xevents(Plugin):
             Primitive(self.hide_line))
 
 
-        '''
-        palette.add_block('setLineColorRGB',
-                          hidden=True,
-                          style='basic-style-3arg',
-                          label=_('setLineColorRGB'),
-                          value_block=True,
-                          default=[0, 0, 0],
-                          help_string=_('set line color from rgb value'),
-                          prim_name='set_line_color_rgb')
-
-        self._parent.lc.def_prim(
-            'set_line_color_rgb', 3,
-            Primitive(self.set_line_color_rgb,
-                      arg_descs=[ArgSlot(TYPE_INT),
-                                 ArgSlot(TYPE_INT),
-                                 ArgSlot(TYPE_INT)]))
-
-
-        palette.add_block('setLineColorRGBmacro',
-                          style='basic-style-extended-vertical',
-                          label=_('setLineColorRGB'),
-                          help_string=_('set line color from rgb value'))
-
-        '''
-
         palette.add_block('setLineColor',
                           style='basic-style-1arg',
                           label=_('setLineColor'),
@@ -398,11 +391,13 @@ class Xevents(Plugin):
                       arg_descs=[ArgSlot(TYPE_NUMBER),
                                  ArgSlot(TYPE_NUMBER)]))
 
-        palette.add_block('setLineWidthAndHeightmacro',
+        palette.add_block('setLineWidthAndHeightMacro',
                           style='basic-style-extended-vertical',
                           label=_('setLineWidthAndHeight'),
                           help_string=_('set width and height of line over mouse'))
 
+
+        ############################ Palette Extra #############################
 
         palette2.add_block('simulateKey',
                           style='basic-style-1arg',
@@ -510,19 +505,6 @@ class Xevents(Plugin):
             'alt_key', 0,
             Primitive(CONSTANTS.get, TYPE_STRING, [ConstantArg('xe_alt')]))
 
-        '''
-        palette2.add_block('AltGrKey',
-                          style='box-style',
-                          label=_('altGrKey'),
-                          value_block=True,
-                          help_string=_('alt gr key'),
-                          prim_name='altgr_key')
-
-        
-        self._parent.lc.def_prim(
-            'altgr_key', 0,
-            Primitive(CONSTANTS.get, TYPE_STRING, [ConstantArg('xe_alt_gr')]))
-        '''
 
         palette2.add_block('tabKey',
                           style='box-style',
@@ -598,12 +580,17 @@ class Xevents(Plugin):
             Primitive(CONSTANTS.get, TYPE_STRING, [ConstantArg('xe_f5')]))
 
 
-
         palette2.add_block('combineKeys',
+                        hidden=True,
                         style='number-style-block',
                         label=[_('combine'), _('key1'), _('key2') ],
                         help_string=_('Combines two keys. e.g : ctrl + c'),
                         prim_name='combine_keys')
+
+        palette2.add_block('combineKeysMacro',
+                          style='basic-style-extended-vertical',
+                          label=_('combine'),
+                          help_string=_('Combines two keys. e.g : ctrl + c'))
         
 
         self._parent.lc.def_prim(
@@ -612,11 +599,17 @@ class Xevents(Plugin):
                                               ArgSlot(TYPE_STRING)]))
 
         palette2.add_block('debounce',
+                        hidden=True,
                         style='number-style-block',
                         label=[_('debounce'), _('name'), _('button') ],
-                        default=["name"],
+                        default=[_('name')],
                         help_string=_('Debouncing - The name must be unique'),
                         prim_name='debounce')
+
+        palette2.add_block('debounceMacro',
+                          style='basic-style-extended-vertical',
+                          label=_('debounce'),
+                          help_string=_('Debouncing - The name must be unique'))
         
 
         self._parent.lc.def_prim(
@@ -624,49 +617,37 @@ class Xevents(Plugin):
           Primitive(self.debounce, arg_descs=[ArgSlot(TYPE_STRING),
                                               ArgSlot(TYPE_NUMBER)]))
 
-        palette2.add_block('openBrowser',
-                          style='basic-style-1arg',
-                          label=_('openBrowser'),
-                          default=[_("http://www.example.com")],
-                          help_string=_('Simulates opening a web browser'),
-                          prim_name='browser')
+        palette2.add_block('edgeDetector',
+                        hidden=True,
+                        style='number-style-block',
+                        label=[_('edge detector'), _('name'), _('button') ],
+                        default=[_('name')],
+                        help_string=_('Edge Detector - The name must be unique'),
+                        prim_name='edge_detector')
+
+        palette2.add_block('edgeDetectorMacro',
+                          style='basic-style-extended-vertical',
+                          label=_('edge detector'),
+                          help_string=_('Edge Detector - The name must be unique'))
+        
 
         self._parent.lc.def_prim(
-            'browser', 1,
-            Primitive(self.browser, arg_descs=[ArgSlot(TYPE_STRING)]))
-
-        palette2.add_block('openProgram',
-                           style='basic-style-1arg',
-                           label=_("openProgram"),
-                           default=[_("name")],
-                           help_string=_('Opens a program'),
-                           prim_name='open_program'
-                           )
-
-        self._parent.lc.def_prim(
-            'open_program', 1,
-            Primitive(self.open_program, arg_descs=[ArgSlot(TYPE_STRING)])
-        )
-
-        palette2.add_block('closeProgram',
-                           style='basic-style-1arg',
-                           label=_("closeProgram"),
-                           default=[_("name")],
-                           help_string=_('close a program'),
-                           prim_name='close_program'
-                           )
-
-        self._parent.lc.def_prim(
-            'close_program', 1,
-            Primitive(self.close_program, arg_descs=[ArgSlot(TYPE_STRING)])
-        )
+          'edge_detector', 2,
+          Primitive(self.edge_detector, arg_descs=[ArgSlot(TYPE_STRING),
+                                              ArgSlot(TYPE_NUMBER)]))
 
         palette2.add_block('saveValue',
+                    hidden=True,
                     style='basic-style-2arg',
                     label=[_('saveValue'), _('key'), _('value') ],
-                    default=["key"],
+                    default=[_('key')],
                     help_string=_('save value - The key must be unique'),
                     prim_name='save_value')
+
+        palette2.add_block('saveValueMacro',
+                          style='basic-style-extended-vertical',
+                          label=_('saveValue'),
+                          help_string=_('save value - The key must be unique'))
     
 
         self._parent.lc.def_prim(
@@ -690,29 +671,81 @@ class Xevents(Plugin):
 
 
         palette2.add_block('defaultValue',
+                    hidden=True,
                     style='basic-style-2arg',
                     label=[_('defaultValue'), _('key'), _('value') ],
-                    default=["key"],
+                    default=[_('key')],
                     help_string=_('default value - The key must be unique'),
                     prim_name='default_value')
     
+        palette2.add_block('defaultValueMacro',
+                          style='basic-style-extended-vertical',
+                          label=_('defaultValue'),
+                          help_string=_('default value - The key must be unique'))
 
         self._parent.lc.def_prim(
           'default_value', 2,
           #save a color
-          or_(Primitive(self.default_value,
-                          arg_descs=[ArgSlot(TYPE_STRING),
-                                     ArgSlot(TYPE_COLOR)]),
-                # ... or save a number
-                Primitive(self.default_value,
-                          arg_descs=[ArgSlot(TYPE_STRING),
-                                     ArgSlot(TYPE_NUMBER)]),
-                # ... or save a string
-                Primitive(self.default_value,
-                          arg_descs=[ArgSlot(TYPE_STRING),
-                                     ArgSlot(TYPE_STRING)]) ))
+          Primitive(self.default_value,
+                          arg_descs=or_(
+                              [ArgSlot(TYPE_STRING),ArgSlot(TYPE_COLOR)],
+                              [ArgSlot(TYPE_STRING),ArgSlot(TYPE_NUMBER)],
+                              [ArgSlot(TYPE_STRING),ArgSlot(TYPE_STRING)]) ))
+
+
+        ############################# Palette Prog #############################
+
+        palette3.add_block('openBrowser',
+                          style='basic-style-1arg',
+                          label=_('openBrowser'),
+                          default=[_("http://www.example.com")],
+                          help_string=_('Simulates opening a web browser'),
+                          prim_name='browser')
+
+        self._parent.lc.def_prim(
+            'browser', 1,
+            Primitive(self.browser, arg_descs=[ArgSlot(TYPE_STRING)]))
+
+        palette3.add_block('openProgram',
+                           style='basic-style-1arg',
+                           label=_("openProgram"),
+                           default=[_("name")],
+                           help_string=_('Opens a program'),
+                           prim_name='open_program'
+                           )
+
+        self._parent.lc.def_prim(
+            'open_program', 1,
+            Primitive(self.open_program, arg_descs=[ArgSlot(TYPE_STRING)])
+        )
+
+        palette3.add_block('closeProgram',
+                           style='basic-style-1arg',
+                           label=_("closeProgram"),
+                           default=[_("name")],
+                           help_string=_('close a program'),
+                           prim_name='close_program'
+                           )
+
+        self._parent.lc.def_prim(
+            'close_program', 1,
+            Primitive(self.close_program, arg_descs=[ArgSlot(TYPE_STRING)])
+        )
+
+        palette3.add_block('minimizeWindow',
+                  style='basic-style',
+                  label=_('minimizeWindow'),
+                  value_block=True,
+                  help_string=_('minimize the window'),
+                  prim_name='minimize_window')
+
+        self._parent.lc.def_prim(
+            'minimize_window', 0,
+            Primitive(self.minimize_window))
+
+
         
-        palette2.add_block('setProgramName',
+        palette3.add_block('setProgramName',
                            style='basic-style-1arg',
                            label=_("setProgramName"),
                            default=[_("my program")],
@@ -723,6 +756,26 @@ class Xevents(Plugin):
         self._parent.lc.def_prim(
             'set_program_name', 1,
             Primitive(self.set_program_name, arg_descs=[ArgSlot(TYPE_STRING)])
+        )
+
+        
+        palette3.add_block('getColorAt',
+                           hidden=True,
+                           style='number-style-block',
+                           label=_("getColorAt"),
+                           default=[0, 0],
+                           help_string=_("Get rgb color from specific display position"),
+                           prim_name='get_color_at'
+                           )
+
+        palette3.add_block('getColorAtMacro',
+                          style='basic-style-extended-vertical',
+                          label=_('getColorAt'),
+                          help_string=_('Get rgb color from specific display position'))
+
+        self._parent.lc.def_prim(
+            'get_color_at', 2,
+            Primitive(self.get_color_at, arg_descs=[ArgSlot(TYPE_NUMBER), ArgSlot(TYPE_NUMBER)])
         )
         
     ############################# Turtle calls ################################
@@ -791,8 +844,10 @@ class Xevents(Plugin):
     def browser(self, url):
         self._events.browser(url)
 
-    def _listMode(self, l):
+    def combine_keys(self, key1, key2):
+        return key1 + " " + key2 
 
+    def _listMode(self, l):
         data = Counter(l)
         if len(data) > 0:
             data.most_common() # Returns all unique items and their counts
@@ -800,29 +855,38 @@ class Xevents(Plugin):
         else:
             return 0
 
-    def combine_keys(self, key1, key2):
-      return key1 + " " + key2 
-
     def debounce(self, buttonName, buttonState):
+       current_time = int(round(time.time()*1000))
+       self._last_event = current_time
 
-      current_time = int(round(time.time()*1000))
-      self._last_event = current_time
-
-      #deboucing - recolectar lecturas en cierto tiempo y evaluar la cantidad de 0 y 1's
-      #self.buttons -> key:[]
-      if not self._buttons.has_key(buttonName):
-        self._buttons[buttonName] = []
+       #deboucing - recolectar lecturas en cierto tiempo y evaluar la cantidad de 0 y 1's
+       #self.buttons -> key:[]
+       if not self._buttons.has_key(buttonName):
+           self._buttons[buttonName] = []
       
-      self._buttons[buttonName].append(buttonState)
+       self._buttons[buttonName].append(buttonState)
 
-      #Keep the buffer at xe_buffer_size
-      if len(self._buttons[buttonName]) > CONSTANTS['xe_buffer_size']:
-        self._buttons[buttonName].pop(0)
+       #Keep the buffer at xe_buffer_size
+       if len(self._buttons[buttonName]) > CONSTANTS['xe_buffer_size']:
+           self._buttons[buttonName].pop(0)
 
-      if self._listMode(self._buttons[buttonName]) == 1:    
-        return 1      
-      else:
-        return 0
+       if self._listMode(self._buttons[buttonName]) == 1:    
+           return 1      
+       else:
+           return 0
+
+    def edge_detector(self, buttonName, buttonState):
+       falling_edge = 0;
+       rising_edge = 0
+       if (buttonState != self._last_button_state):
+           #falling edge
+           if (buttonState == 0):
+               falling_edge = 1
+           #rising edge  
+           else:
+               rising_edge = 1  
+       self._last_button_state = buttonState
+       return rising_edge
 
     def open_program(self, program):
         self._events.open_program(program)
@@ -831,104 +895,99 @@ class Xevents(Plugin):
         self._events.close_program(program)
 
     def init_gconf(self):
-      
-      try:
-        self.gconf_client = gconf.client_get_default()
-      except Exception, err:
-        debug_output(_('ERROR: cannot init GCONF client: %s') % err)
-        self.gconf_client = None
-      
+        try:
+            self.gconf_client = gconf.client_get_default()
+        except Exception, err:
+            debug_output(_('ERROR: cannot init GCONF client: %s') % err)
+            self.gconf_client = None
 
     def get_gconf(self, key):
-
-      casts = {gconf.VALUE_BOOL:   gconf.Value.get_bool,
+        casts = {gconf.VALUE_BOOL:   gconf.Value.get_bool,
                gconf.VALUE_INT:    gconf.Value.get_int,
                gconf.VALUE_FLOAT:  gconf.Value.get_float,
                gconf.VALUE_STRING: gconf.Value.get_string}
- 
-      try:
-        #res = float(self.gconf_client.get_string(key))
+        res = None
+        try:
+            val = self.gconf_client.get(key)
+            if val is not None:
+                res = casts[val.type](val)
+        except:
+            pass
 
-        val = self.gconf_client.get(key)
-        if val == None:
-          ret = None
-        res = casts[val.type](val)
-
-      except:
-        return None
-
-      return res
-
+        return res
 
     def set_gconf(self, key, value):
 
-      casts = {types.BooleanType: gconf.Client.set_bool,
+        casts = {types.BooleanType: gconf.Client.set_bool,
               types.IntType:     gconf.Client.set_int,
               types.FloatType:   gconf.Client.set_float,
               types.StringType:  gconf.Client.set_string}
       
-      try:
-        casts[type(value)](self.gconf_client, key, value)
-        #self.gconf_client.set_float(key, value)
-      except:
-        pass
-
+        try:
+            casts[type(value)](self.gconf_client, key, value)
+            #self.gconf_client.set_float(key, value)
+        except:
+            pass
 
     def save_value(self, key, value):
+        #if value does not exist, create it
+        gconf_key = GCONF_XEVENTS_PATH + "_" + key
+        if (hasattr(self,"_program_name")):
+            gconf_key = GCONF_XEVENTS_PATH + "_" + self._program_name + "_" + key
 
-      #if value does not exist, create it
-      gconf_key = GCONF_XEVENTS_PATH + "_" + key
-      if (hasattr(self,"_program_name")):
-        gconf_key = GCONF_XEVENTS_PATH + "_" + self._program_name + "_" + key
-
-      self.set_gconf(gconf_key, value)
-      self._defaults[gconf_key] =  value
-      self._parent.lc.prim_set_box( key, value)
-
+        self.set_gconf(gconf_key, value)
+        self._defaults[gconf_key] =  value
+        self._parent.lc.prim_set_box( key, value)
 
     def get_value(self, key):
+        #if value does not exist, create it
+        gconf_key = GCONF_XEVENTS_PATH + "_" + key
+        if (hasattr(self,"_program_name")):
+            gconf_key = GCONF_XEVENTS_PATH + "_" + self._program_name + "_" + key
 
-      #if value does not exist, create it
-      gconf_key = GCONF_XEVENTS_PATH + "_" + key
-      if (hasattr(self,"_program_name")):
-        gconf_key = GCONF_XEVENTS_PATH + "_" + self._program_name + "_" + key
-
-      return self._defaults.get(gconf_key,self.get_gconf(gconf_key))
-
+        return self._defaults.get(gconf_key,self.get_gconf(gconf_key))
 
     def default_value(self, key, value):
+        #if value does not exist, create it
+        gconf_key = GCONF_XEVENTS_PATH + "_" + key
 
-      #if value does not exist, create it
-      gconf_key = GCONF_XEVENTS_PATH + "_" + key
+        if (hasattr(self,"_program_name")):
+            gconf_key = GCONF_XEVENTS_PATH + "_" + self._program_name + "_" + key
+        try:
+            running_from_py =(self._parent.parent.__class__.__name__=='DummyTurtleMain')
+        except:
+            running_from_py = True
 
-      if (hasattr(self,"_program_name")):
-        gconf_key = GCONF_XEVENTS_PATH + "_" + self._program_name + "_" + key
-      try:
-        running_from_py =(self._parent.parent.__class__.__name__=='DummyTurtleMain')
-      except:
-        running_from_py = True
-
-      if (running_from_py):
-        if (self.get_gconf(gconf_key ) is not None ) :
-          # There is already a value, using it instead of default
-          value = self.get_gconf(gconf_key)
-        else:
-          # First run, setting gconf
-          self.set_gconf(gconf_key , value)
-      else:
-        self._defaults[gconf_key] =  value
-
-      self._parent.lc.prim_set_box( key, value)
-      self._parent.lc.update_label_value('box', value, label=key)
+        if running_from_py:
+            if (self.get_gconf(gconf_key ) is not None ) :
+                # There is already a value, using it instead of default
+                value = self.get_gconf(gconf_key)
+            else:
+                # First run, setting gconf
+                self.set_gconf(gconf_key , value)
         
-    
-    def set_program_name(self, value):
+            self._parent.lc.boxes[key] = value
+ 
+        else:
+            self._defaults[gconf_key] =  value
+            self._parent.lc.prim_set_box( key, value)
+            self._parent.lc.update_label_value('box', value, label=key)
 
-      #Convert name to lowercase
-      value.lower()
-      #Remove whitespace characters at start and end
-      value.strip()
-      #Replace whitespace with underscores
-      value.replace(" ", "_")
-      self._program_name = value
-    
+    def set_program_name(self, value):
+        #Convert name to lowercase
+        value.lower()
+        #Remove whitespace characters at start and end
+        value.strip()
+        #Replace whitespace with underscores
+        value.replace(" ", "_")
+        self._program_name = value
+
+    def minimize_window(self):
+        self._parent.lc.tw.activity.win.iconify()
+     
+    def get_color_at(self, cx, cy):
+        rw = gtk.gdk.get_default_root_window()
+        pixbuf = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, False, 8, 1, 1)
+        pixbuf = pixbuf.get_from_drawable(rw, rw.get_colormap(), int(cx), int(cy), 0, 0, 1, 1)
+        return '#%02x%02x%02x' % (tuple(pixbuf.pixel_array[0, 0]))
+

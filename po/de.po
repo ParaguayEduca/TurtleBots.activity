@@ -2666,8 +2666,8 @@ msgstr "Gibt die x-Koordinate des Mauszeigers zurück."
 msgid "red"
 msgstr "Rot"
 
-#: TurtleArtActivity.py:895 TurtleArtActivity.py:1080
-#: TurtleArtActivity.py:1128 turtleblocks.py:433
+#: TurtleArtActivity.py:895 TurtleArtActivity.py:1080 TurtleArtActivity.py:1128
+#: turtleblocks.py:433
 #, fuzzy
 msgid "Save as Logo"
 msgstr ""
@@ -2696,8 +2696,8 @@ msgstr "Zusammenarbeit erlauben"
 msgid "Palette of sensor blocks"
 msgstr "Palette der Sensorblöcke"
 
-#: TurtleArtActivity.py:901 TurtleArtActivity.py:1116
-#: TurtleArtActivity.py:1142 turtleblocks.py:427
+#: TurtleArtActivity.py:901 TurtleArtActivity.py:1116 TurtleArtActivity.py:1142
+#: turtleblocks.py:427
 msgid "Load plugin"
 msgstr "Plugin laden"
 
@@ -2981,8 +2981,7 @@ msgstr "rechts: x"
 msgid "light level detected by light sensor"
 msgstr "vom Lichtsensor wahrgenommene Leuchtstärke"
 
-#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104
-#: TurtleArt/taplugin.py:107
+#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104 TurtleArt/taplugin.py:107
 msgid "Plugin could not be installed."
 msgstr "Das Plugin konnte nicht installiert werden."
 
@@ -3599,8 +3598,7 @@ msgstr "speichere in"
 msgid "Hide blocks"
 msgstr "Blöcke verbergen"
 
-#: TurtleArtActivity.py:902 TurtleArtActivity.py:1119
-#: TurtleArtActivity.py:1145
+#: TurtleArtActivity.py:902 TurtleArtActivity.py:1119 TurtleArtActivity.py:1145
 msgid "Load Python block"
 msgstr "Python-Block laden"
 
@@ -3654,8 +3652,7 @@ msgstr "Palette anzeigen"
 msgid "saves a picture to the Sugar Journal"
 msgstr "Ein Bild ins Sugar-Tagebuch speichern"
 
-#: TurtleArtActivity.py:897 TurtleArtActivity.py:1087
-#: TurtleArtActivity.py:1135
+#: TurtleArtActivity.py:897 TurtleArtActivity.py:1087 TurtleArtActivity.py:1135
 msgid "Save snapshot"
 msgstr "Momentaufnahme speichern"
 
@@ -3796,8 +3793,8 @@ msgstr "wiederhole"
 msgid "wait for current video or audio to complete"
 msgstr "Das Ende der aktuellen Video- oder Audio-Wiedergabe abwarten"
 
-#: TurtleArtActivity.py:894 TurtleArtActivity.py:1077
-#: TurtleArtActivity.py:1125 turtleblocks.py:431
+#: TurtleArtActivity.py:894 TurtleArtActivity.py:1077 TurtleArtActivity.py:1125
+#: turtleblocks.py:431
 msgid "Save as image"
 msgstr "Als Bild speichern"
 
@@ -3961,8 +3958,8 @@ msgstr ""
 "Drücke bitte den Stopp-Knopf, bevor du Änderungen an deinem Programm "
 "vornimmst."
 
-#: TurtleArt/tawindow.py:1760 TurtleArtActivity.py:774
-#: TurtleArtActivity.py:921 turtleblocks.py:462
+#: TurtleArt/tawindow.py:1760 TurtleArtActivity.py:774 TurtleArtActivity.py:921
+#: turtleblocks.py:462
 msgid "Save stack"
 msgstr "Stapel speichern"
 
@@ -3995,8 +3992,8 @@ msgstr "Bitte warten"
 msgid "Starting connection..."
 msgstr "Stelle Verbindung her..."
 
-#: TurtleArtActivity.py:896 TurtleArtActivity.py:1083
-#: TurtleArtActivity.py:1131 turtleblocks.py:435
+#: TurtleArtActivity.py:896 TurtleArtActivity.py:1083 TurtleArtActivity.py:1131
+#: turtleblocks.py:435
 msgid "Save as Python"
 msgstr "Als Python-Programm speichern"
 

@@ -15,10 +15,9 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from time import time
 import os
-import glob
-
+import tempfile
+from time import time
 from gettext import gettext as _
 
 from plugins.plugin import Plugin
@@ -29,7 +28,8 @@ from TurtleArt.taconstants import (CONSTANTS, MACROS, KEY_DICT, MEDIA_SHAPES,
                                    BLOCKS_WITH_SKIN, PYTHON_SKIN,
                                    MEDIA_BLOCK2TYPE, VOICES)
 from TurtleArt.tautils import (debug_output, get_path, data_to_string,
-                               hat_on_top, listify, data_from_file)
+                               hat_on_top, listify, data_from_file,
+                               get_endswith_files)
 from TurtleArt.taprimitive import (ArgSlot, ConstantArg, Primitive)
 from TurtleArt.tatype import (TYPE_BOOL, TYPE_BOX, TYPE_CHAR, TYPE_INT,
                               TYPE_FLOAT, TYPE_OBJECT, TYPE_STRING,
@@ -1166,7 +1166,7 @@ Journal objects'))
 
         if hasattr(self.tw, 'macros_path') and \
                 os.path.exists(self.tw.macros_path):
-            files = glob.glob(os.path.join(self.tw.macros_path, '*.tb'))
+            files = get_endswith_files(self.tw.macros_path, ".tb")
             if len(files) > 0:
                 palette = make_palette(
                     'myblocks',
@@ -1254,7 +1254,7 @@ Journal objects'))
             path = os.path.join(get_path(self.tw.activity, 'instance'),
                                 'tmp.csd')
         else:
-            path = os.path.join('/tmp', 'tmp.csd')
+            path = os.path.join(tempfile.gettempdir(), 'tmp.csd')
         # Create a csound file from the score.
         self._audio_write(path)
         # Play the csound file.
