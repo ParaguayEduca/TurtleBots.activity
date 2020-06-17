@@ -1839,20 +1839,6 @@ msgstr "enquanto"
 msgid "the canvas width"
 msgstr "a largura da tela"
 
-# #-#-#-#-#  pt_BR.po (PACKAGE VERSION)  #-#-#-#-#
-# KSp54N  <a href="http://ntmbjiiaoekm.com/">ntmbjiiaoekm</a>, [url=http://bewqzxbwopvt.com/]bewqzxbwopvt[/url], [link=http://vsvihmzobocj.com/]vsvihmzobocj[/link], http://elhuengzhnsf.com/
-#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:525
-#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:535
-#, fuzzy
-msgid "empty heap?"
-msgstr ""
-"#-#-#-#-#  pt_BR.po (PACKAGE VERSION)  #-#-#-#-#\n"
-"KSp54N  <a href=\"http://ntmbjiiaoekm.com/\">ntmbjiiaoekm</a>, [url=http://"
-"bewqzxbwopvt.com/]bewqzxbwopvt[/url], [link=http://vsvihmzobocj."
-"com/]vsvihmzobocj[/link], http://elhuengzhnsf.com/\n"
-"#-#-#-#-#  pt_BR.po (PACKAGE VERSION)  #-#-#-#-#\n"
-"pilha vazia?"
-
 #: TurtleArt/tabasics.py:945 TurtleArt/tawindow.py:4404
 msgid "named variable (numeric value)"
 msgstr "variável nomeada (valor numérico)"
@@ -2757,19 +2743,6 @@ msgstr "Colar"
 msgid "did not output to"
 msgstr "não houve saída para"
 
-# #-#-#-#-#  pt_BR.po (PACKAGE VERSION)  #-#-#-#-#
-# KSp54N  <a href="http://ntmbjiiaoekm.com/">ntmbjiiaoekm</a>, [url=http://bewqzxbwopvt.com/]bewqzxbwopvt[/url], [link=http://vsvihmzobocj.com/]vsvihmzobocj[/link], http://elhuengzhnsf.com/
-#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:496
-#, fuzzy
-msgid "empty heap"
-msgstr ""
-"#-#-#-#-#  pt_BR.po (PACKAGE VERSION)  #-#-#-#-#\n"
-"KSp54N  <a href=\"http://ntmbjiiaoekm.com/\">ntmbjiiaoekm</a>, [url=http://"
-"bewqzxbwopvt.com/]bewqzxbwopvt[/url], [link=http://vsvihmzobocj."
-"com/]vsvihmzobocj[/link], http://elhuengzhnsf.com/\n"
-"#-#-#-#-#  pt_BR.po (PACKAGE VERSION)  #-#-#-#-#\n"
-"esvazia pilha"
-
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:514
 #, fuzzy
 msgid "pops value off FILO (first-in last-out heap)"
@@ -3439,8 +3412,8 @@ msgstr ""
 msgid "Select blocks to share"
 msgstr "Selecione blocos para compartilhar"
 
-#: TurtleArt/tawindow.py:1530 TurtleArtActivity.py:632
-#: TurtleArtActivity.py:781 turtleblocks.py:397
+#: TurtleArt/tawindow.py:1530 TurtleArtActivity.py:632 TurtleArtActivity.py:781
+#: turtleblocks.py:397
 msgid "Save stack"
 msgstr "Salvar a pilha"
 
@@ -3869,9 +3842,20 @@ msgstr "retorna o valor que a tartaruga \"vê\""
 msgid "elapsed time (in seconds) since program started"
 msgstr "tempo passado (em segundos) desde que o programa começou"
 
+#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:496
+#, fuzzy
+msgid "empty heap"
+msgstr "esvazia pilha"
+
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:499
 msgid "emptys FILO (first-in-last-out heap)"
 msgstr "esvazia pilha"
+
+#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:525
+#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:535
+#, fuzzy
+msgid "empty heap?"
+msgstr "pilha vazia?"
 
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:528
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:538

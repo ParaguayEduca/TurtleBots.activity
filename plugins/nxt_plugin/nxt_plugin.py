@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # Copyright (C) 2011 Emiliano Pastorino <epastorino@plan.ceibal.edu.uy>
-# Copyright (C) 2011, 2015 Butia Team butia@fing.edu.uy
+# Copyright (C) 2011, 2016 Butia Team butia@fing.edu.uy
 # Butia is a free open plataform for robotics projects
 # www.fing.edu.uy/inco/proyectos/butia
 # Universidad de la República del Uruguay
@@ -64,8 +64,8 @@ COLOR_NOTPRESENT = ["#A0A0A0","#808080"]
 COLOR_PRESENT = ["#00FF00","#008000"]
 
 ERROR_BRICK = _('Please check the connection with the brick')
-ERROR_PORT_M = _("Invalid port '%s'. Port must be: PORT A, B or C")
-ERROR_PORT_S = _("Invalid port '%s'. Port must be: PORT 1, 2, 3 or 4")
+ERROR_PORT_M = _("Invalid port '%s'. Port must be: A, B or C")
+ERROR_PORT_S = _("Invalid port '%s'. Port must be: 1, 2, 3 or 4")
 ERROR_POWER = _('The value of power must be between -127 to 127')
 ERROR_NO_NUMBER = _("The parameter must be a integer, not '%s'")
 ERROR_UNKNOW_SENSOR = ("Unknow '%s' sensor")
@@ -155,34 +155,6 @@ class Nxt_plugin(Plugin):
                   prim_name='nxtsyncmotorsforever')
         self.tw.lc.def_prim('nxtsyncmotorsforever', 1,
             Primitive(self.syncmotorsforever, arg_descs=[ArgSlot(TYPE_NUMBER)]))
-
-        global CONSTANTS
-        CONSTANTS['PORT A'] = 'A'
-        palette_motors.add_block('nxtporta',
-                  style='box-style',
-                  label=_('PORT %s') % 'A',
-                  help_string=_('PORT %s of the brick') % 'A',
-                  prim_name='nxtporta')
-        self.tw.lc.def_prim('nxtporta', 0,
-            Primitive(CONSTANTS.get, TYPE_STRING, [ConstantArg('PORT A')]))
-
-        CONSTANTS['PORT B'] = 'B'
-        palette_motors.add_block('nxtportb',
-                  style='box-style',
-                  label=_('PORT %s') % 'B',
-                  help_string=_('PORT %s of the brick') % 'B',
-                  prim_name='nxtportb')
-        self.tw.lc.def_prim('nxtportb', 0,
-            Primitive(CONSTANTS.get, TYPE_STRING, [ConstantArg('PORT B')]))
-
-        CONSTANTS['PORT C'] = 'C'
-        palette_motors.add_block('nxtportc',
-                  style='box-style',
-                  label=_('PORT %s') % 'C',
-                  help_string=_('PORT %s of the brick') % 'C',
-                  prim_name='nxtportc')
-        self.tw.lc.def_prim('nxtportc', 0,
-            Primitive(CONSTANTS.get, TYPE_STRING, [ConstantArg('PORT C')]))
 
         palette_motors.add_block('nxtstartmotor',
                   style='basic-style-2arg',
@@ -302,42 +274,6 @@ class Nxt_plugin(Plugin):
         self.tw.lc.def_prim('nxtcolor', 1,
             Primitive(self.getColor, TYPE_INT, [ArgSlot(TYPE_INT)]))
 
-        CONSTANTS['PORT 1'] = 1
-        palette_sensors.add_block('nxtport1',
-                  style='box-style',
-                  label=_('PORT %s') % 1,
-                  help_string=_('PORT %s of the brick') % 1,
-                  prim_name='nxtport1')
-        self.tw.lc.def_prim('nxtport1', 0,
-            Primitive(CONSTANTS.get, TYPE_INT, [ConstantArg('PORT 1')]))
-
-        CONSTANTS['PORT 2'] = 2
-        palette_sensors.add_block('nxtport2',
-                  style='box-style',
-                  label=_('PORT %s') % 2,
-                  help_string=_('PORT %s of the brick') % 2,
-                  prim_name='nxtport2')
-        self.tw.lc.def_prim('nxtport2', 0,
-            Primitive(CONSTANTS.get, TYPE_INT, [ConstantArg('PORT 2')]))
-
-        CONSTANTS['PORT 3'] = 3
-        palette_sensors.add_block('nxtport3',
-                  style='box-style',
-                  label=_('PORT %s') % 3,
-                  help_string=_('PORT %s of the brick') % 3,
-                  prim_name='nxtport3')
-        self.tw.lc.def_prim('nxtport3', 0,
-            Primitive(CONSTANTS.get, TYPE_INT, [ConstantArg('PORT 3')]))
-
-        CONSTANTS['PORT 4'] = 4
-        palette_sensors.add_block('nxtport4',
-                  style='box-style',
-                  label=_('PORT %s') % 4,
-                  help_string=_('PORT %s of the brick') % 4,
-                  prim_name='nxtport4')
-        self.tw.lc.def_prim('nxtport4', 0,
-            Primitive(CONSTANTS.get, TYPE_INT, [ConstantArg('PORT 4')]))
-
         palette_sensors.add_block('nxtbattery',
                   style='box-style',
                   label=_('battery level'),
@@ -355,15 +291,6 @@ class Nxt_plugin(Plugin):
         self.tw.lc.def_prim('nxtlightcolor', 1,
             Primitive(self.getLightColor, TYPE_INT, [ArgSlot(TYPE_INT)]))
 
-        palette_sensors.add_block('nxtsetcolor',
-                  style='basic-style-2arg',
-                  label=[_('set light'), _('port'), _('color')],
-                  default=[1],
-                  help_string=_('Set color sensor light.'),
-                  prim_name='nxtsetcolor')
-        self.tw.lc.def_prim('nxtsetcolor', 2,
-            Primitive(self.setcolor, arg_descs=[ArgSlot(TYPE_INT), ArgSlot(TYPE_INT)]))
-
         palette_sensors.add_block('nxtcompass',
                   style='number-style-1arg',
                   label=_('compass'),
@@ -372,6 +299,15 @@ class Nxt_plugin(Plugin):
                   prim_name='nxtcompass')
         self.tw.lc.def_prim('nxtcompass', 1,
             Primitive(self.getCompass, TYPE_INT, [ArgSlot(TYPE_INT)]))
+
+        palette_sensors.add_block('nxtsetcolor',
+                  style='basic-style-2arg',
+                  label=[_('set light'), _('port'), _('color')],
+                  default=[1],
+                  help_string=_('Set color sensor light.'),
+                  prim_name='nxtsetcolor')
+        self.tw.lc.def_prim('nxtsetcolor', 2,
+            Primitive(self.setcolor, arg_descs=[ArgSlot(TYPE_INT), ArgSlot(TYPE_INT)]))
 
     ############################### Turtle signals ############################
 
@@ -515,7 +451,10 @@ class Nxt_plugin(Plugin):
                 try:
                     port_aux = NXT_SENSOR_PORTS[port]
                     sensor = Touch(self._bricks[self.active_nxt], port_aux)
-                    return sensor.get_sample()
+                    if sensor.get_sample():
+                        return 1
+                    else:
+                        return 0
                 except:
                     return ERROR
             else:
@@ -523,7 +462,7 @@ class Nxt_plugin(Plugin):
         else:
             raise logoerror(ERROR_BRICK)
 
-    def getDistance(self, port):
+    def getCompass(self, port):
         if self._bricks:
             try:
                 port = int(port)
@@ -541,7 +480,7 @@ class Nxt_plugin(Plugin):
         else:
             raise logoerror(ERROR_BRICK)
 
-    def getCompass(self, port):
+    def getDistance(self, port):
         if self._bricks:
             try:
                 port = int(port)

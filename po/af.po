@@ -2128,8 +2128,7 @@ msgstr ""
 msgid "print"
 msgstr "druk"
 
-#: TurtleArtActivity.py:935 TurtleArtActivity.py:1141
-#: TurtleArtActivity.py:1202
+#: TurtleArtActivity.py:935 TurtleArtActivity.py:1141 TurtleArtActivity.py:1202
 msgid "Save as Logo"
 msgstr "Stoor as Logo"
 
@@ -2606,8 +2605,7 @@ msgstr ""
 msgid "Show palette"
 msgstr "Wys palet"
 
-#: TurtleArtActivity.py:937 TurtleArtActivity.py:1148
-#: TurtleArtActivity.py:1209
+#: TurtleArtActivity.py:937 TurtleArtActivity.py:1148 TurtleArtActivity.py:1209
 msgid "Save snapshot"
 msgstr "Stoor flitsbeeld"
 
@@ -2675,8 +2673,7 @@ msgstr "stel xy"
 msgid "repeat"
 msgstr "herhaal"
 
-#: TurtleArtActivity.py:922 TurtleArtActivity.py:1125
-#: TurtleArtActivity.py:1186
+#: TurtleArtActivity.py:922 TurtleArtActivity.py:1125 TurtleArtActivity.py:1186
 msgid "Save as image"
 msgstr "Stoor as prent"
 
@@ -2984,8 +2981,7 @@ msgstr ""
 msgid "Please restart Turtle Art in order to use the plugin."
 msgstr ""
 
-#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104
-#: TurtleArt/taplugin.py:107
+#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104 TurtleArt/taplugin.py:107
 msgid "Plugin could not be installed."
 msgstr ""
 
@@ -3022,8 +3018,8 @@ msgstr ""
 msgid "Select blocks to share"
 msgstr ""
 
-#: TurtleArt/tawindow.py:1772 TurtleArtActivity.py:802
-#: TurtleArtActivity.py:961 turtleblocks.py:473
+#: TurtleArt/tawindow.py:1772 TurtleArtActivity.py:802 TurtleArtActivity.py:961
+#: turtleblocks.py:473
 msgid "Save stack"
 msgstr ""
 
@@ -3123,34 +3119,30 @@ msgstr ""
 msgid "Load example"
 msgstr ""
 
-#: TurtleArtActivity.py:925 TurtleArtActivity.py:1128
-#: TurtleArtActivity.py:1189
+#: TurtleArtActivity.py:925 TurtleArtActivity.py:1128 TurtleArtActivity.py:1189
 msgid "Save as icon"
 msgstr ""
 
 #. TRANS: ODP is Open Office presentation
-#: TurtleArtActivity.py:930 TurtleArtActivity.py:1132
-#: TurtleArtActivity.py:1193
+#: TurtleArtActivity.py:930 TurtleArtActivity.py:1132 TurtleArtActivity.py:1193
 msgid "Save as ODP"
 msgstr ""
 
-#: TurtleArtActivity.py:936 TurtleArtActivity.py:1144
-#: TurtleArtActivity.py:1205
+#: TurtleArtActivity.py:936 TurtleArtActivity.py:1144 TurtleArtActivity.py:1205
 msgid "Save as Python"
 msgstr ""
 
-#: TurtleArtActivity.py:938 TurtleArtActivity.py:1172
-#: TurtleArtActivity.py:1211 turtleblocks.py:426
+#: TurtleArtActivity.py:938 TurtleArtActivity.py:1172 TurtleArtActivity.py:1211
+#: turtleblocks.py:426
 msgid "Add project"
 msgstr ""
 
-#: TurtleArtActivity.py:941 TurtleArtActivity.py:1177
-#: TurtleArtActivity.py:1217 turtleblocks.py:427
+#: TurtleArtActivity.py:941 TurtleArtActivity.py:1177 TurtleArtActivity.py:1217
+#: turtleblocks.py:427
 msgid "Load plugin"
 msgstr ""
 
-#: TurtleArtActivity.py:942 TurtleArtActivity.py:1180
-#: TurtleArtActivity.py:1220
+#: TurtleArtActivity.py:942 TurtleArtActivity.py:1180 TurtleArtActivity.py:1220
 msgid "Load Python block"
 msgstr ""
 
@@ -3621,8 +3613,7 @@ msgstr ""
 
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:641
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:656
-#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:672
-#: turtleblocks.py:446
+#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:672 turtleblocks.py:446
 msgid "Python"
 msgstr ""
 

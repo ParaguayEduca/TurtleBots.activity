@@ -2407,8 +2407,8 @@ msgstr "माउसको x निर्देशाङ्क फर्का�
 msgid "red"
 msgstr "रातो"
 
-#: TurtleArtActivity.py:895 TurtleArtActivity.py:1080
-#: TurtleArtActivity.py:1128 turtleblocks.py:433
+#: TurtleArtActivity.py:895 TurtleArtActivity.py:1080 TurtleArtActivity.py:1128
+#: turtleblocks.py:433
 msgid "Save as Logo"
 msgstr "लोगोको रुपमा सेभ गर"
 
@@ -2432,8 +2432,8 @@ msgstr "सहकार्य सक्षम पार"
 msgid "Palette of sensor blocks"
 msgstr "सेन्सर खण्डहरुको प्यालेट"
 
-#: TurtleArtActivity.py:901 TurtleArtActivity.py:1116
-#: TurtleArtActivity.py:1142 turtleblocks.py:427
+#: TurtleArtActivity.py:901 TurtleArtActivity.py:1116 TurtleArtActivity.py:1142
+#: turtleblocks.py:427
 msgid "Load plugin"
 msgstr "पल्गइन सुरु गर"
 
@@ -2708,8 +2708,7 @@ msgstr "दायाँ x"
 msgid "light level detected by light sensor"
 msgstr "प्रकाश सेंसरद्वारा पता लगाएको प्रकाश मात्रा"
 
-#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104
-#: TurtleArt/taplugin.py:107
+#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104 TurtleArt/taplugin.py:107
 msgid "Plugin could not be installed."
 msgstr "पल्गइन इन्टल गर्न सकिएन।"
 
@@ -3270,8 +3269,7 @@ msgstr "स्टोर गर्नुहोस्"
 msgid "Hide blocks"
 msgstr "खण्डहरु लुकाऊ"
 
-#: TurtleArtActivity.py:902 TurtleArtActivity.py:1119
-#: TurtleArtActivity.py:1145
+#: TurtleArtActivity.py:902 TurtleArtActivity.py:1119 TurtleArtActivity.py:1145
 msgid "Load Python block"
 msgstr "पाइथन खण्ड सुरु गर"
 
@@ -3321,8 +3319,7 @@ msgstr "प्यालेट देखाउ"
 msgid "saves a picture to the Sugar Journal"
 msgstr "सुगर जर्नलमा तस्विर सेभ गर्छ"
 
-#: TurtleArtActivity.py:897 TurtleArtActivity.py:1087
-#: TurtleArtActivity.py:1135
+#: TurtleArtActivity.py:897 TurtleArtActivity.py:1087 TurtleArtActivity.py:1135
 msgid "Save snapshot"
 msgstr "स्नयापसट सेभ गर"
 
@@ -3447,8 +3444,8 @@ msgstr "दोहोर्‍याउ"
 msgid "wait for current video or audio to complete"
 msgstr "हालको भिडियो वा आवाज समाप्त हुन कुर्नुहोस्"
 
-#: TurtleArtActivity.py:894 TurtleArtActivity.py:1077
-#: TurtleArtActivity.py:1125 turtleblocks.py:431
+#: TurtleArtActivity.py:894 TurtleArtActivity.py:1077 TurtleArtActivity.py:1125
+#: turtleblocks.py:431
 msgid "Save as image"
 msgstr "तस्विरको रुपमा सेभ गर"
 
@@ -3602,8 +3599,8 @@ msgstr "त्रुटि"
 msgid "Please hit the Stop Button before making changes to your program"
 msgstr "तपाईँको प्रोग्राममा केहि परिवर्तन हुनु अगावै कृपया रोक्ने बटनमा थिच्नुहोस्।"
 
-#: TurtleArt/tawindow.py:1760 TurtleArtActivity.py:774
-#: TurtleArtActivity.py:921 turtleblocks.py:462
+#: TurtleArt/tawindow.py:1760 TurtleArtActivity.py:774 TurtleArtActivity.py:921
+#: turtleblocks.py:462
 msgid "Save stack"
 msgstr "स्टक सेभ गर"
 
@@ -3636,8 +3633,8 @@ msgstr "कृपया पर्खनुहोस्"
 msgid "Starting connection..."
 msgstr "जडानहरू सुरु हुँदै ..."
 
-#: TurtleArtActivity.py:896 TurtleArtActivity.py:1083
-#: TurtleArtActivity.py:1131 turtleblocks.py:435
+#: TurtleArtActivity.py:896 TurtleArtActivity.py:1083 TurtleArtActivity.py:1131
+#: turtleblocks.py:435
 msgid "Save as Python"
 msgstr "Python को रूपमा सेभ गर"
 

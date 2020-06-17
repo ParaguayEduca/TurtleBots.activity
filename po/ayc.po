@@ -2647,8 +2647,7 @@ msgid "red"
 msgstr "chupika"
 
 #  "Guardar como Logo"
-#: TurtleArtActivity.py:935 TurtleArtActivity.py:1141
-#: TurtleArtActivity.py:1202
+#: TurtleArtActivity.py:935 TurtleArtActivity.py:1141 TurtleArtActivity.py:1202
 msgid "Save as Logo"
 msgstr "Wakichata Chimpjama imaña"
 
@@ -2673,8 +2672,8 @@ msgstr "Yanapt'asiña wakiyaña"
 msgid "Palette of sensor blocks"
 msgstr "Katjiri siqinaka limt'aña"
 
-#: TurtleArtActivity.py:941 TurtleArtActivity.py:1177
-#: TurtleArtActivity.py:1217 turtleblocks.py:427
+#: TurtleArtActivity.py:941 TurtleArtActivity.py:1177 TurtleArtActivity.py:1217
+#: turtleblocks.py:427
 msgid "Load plugin"
 msgstr "Plugin wakichata sartayaña"
 
@@ -2979,8 +2978,7 @@ msgstr "x kupi"
 msgid "light level detected by light sensor"
 msgstr "qhana katjiri wakichatana qhana katuqata chani chimpu"
 
-#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104
-#: TurtleArt/taplugin.py:107
+#: TurtleArt/taplugin.py:93 TurtleArt/taplugin.py:104 TurtleArt/taplugin.py:107
 msgid "Plugin could not be installed."
 msgstr "Plugin wakichataxa janiwa qhantayañjamäkiti."
 
@@ -3255,8 +3253,7 @@ msgstr ""
 
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:641
 #: plugins/turtle_blocks_extras/turtle_blocks_extras.py:656
-#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:672
-#: turtleblocks.py:446
+#: plugins/turtle_blocks_extras/turtle_blocks_extras.py:672 turtleblocks.py:446
 msgid "Python"
 msgstr "Python wakichata"
 
@@ -3587,8 +3584,7 @@ msgid "Hide blocks"
 msgstr "Siqichata wakichatanaka imantaña"
 
 #  "Cargar bloque Python"
-#: TurtleArtActivity.py:942 TurtleArtActivity.py:1180
-#: TurtleArtActivity.py:1220
+#: TurtleArtActivity.py:942 TurtleArtActivity.py:1180 TurtleArtActivity.py:1220
 msgid "Load Python block"
 msgstr "Python siqi wakichata sartayaña"
 
@@ -3646,8 +3642,7 @@ msgid "saves a picture to the Sugar Journal"
 msgstr "Azúcar wakichatana sapüru luräwiparu rixita wakichata imma"
 
 #  "Guardar instantánea"
-#: TurtleArtActivity.py:937 TurtleArtActivity.py:1148
-#: TurtleArtActivity.py:1209
+#: TurtleArtActivity.py:937 TurtleArtActivity.py:1148 TurtleArtActivity.py:1209
 msgid "Save snapshot"
 msgstr "Jukhawraspacha imaña"
 
@@ -3780,8 +3775,7 @@ msgid "wait for current video or audio to complete"
 msgstr "ist'aña wakichata jani ukaxa uñjaña tukuyañapkama suyaña"
 
 #  "Guardar como imagen"
-#: TurtleArtActivity.py:922 TurtleArtActivity.py:1125
-#: TurtleArtActivity.py:1186
+#: TurtleArtActivity.py:922 TurtleArtActivity.py:1125 TurtleArtActivity.py:1186
 msgid "Save as image"
 msgstr "Rixita wakichatjma imaña"
 
@@ -3940,8 +3934,8 @@ msgstr "pantjata"
 msgid "Please hit the Stop Button before making changes to your program"
 msgstr "Mira suma, janirara mayjt'äwinka lurkasa sayt'ayaña limiña limt'ma"
 
-#: TurtleArt/tawindow.py:1772 TurtleArtActivity.py:802
-#: TurtleArtActivity.py:961 turtleblocks.py:473
+#: TurtleArt/tawindow.py:1772 TurtleArtActivity.py:802 TurtleArtActivity.py:961
+#: turtleblocks.py:473
 msgid "Save stack"
 msgstr "Pila imaña"
 
@@ -3978,24 +3972,21 @@ msgstr "Mira suma suyt'ama"
 msgid "Starting connection..."
 msgstr "Mayachaña qalltata..."
 
-#: TurtleArtActivity.py:925 TurtleArtActivity.py:1128
-#: TurtleArtActivity.py:1189
+#: TurtleArtActivity.py:925 TurtleArtActivity.py:1128 TurtleArtActivity.py:1189
 msgid "Save as icon"
 msgstr "limt'añjama imaña"
 
 #. TRANS: ODP is Open Office presentation
-#: TurtleArtActivity.py:930 TurtleArtActivity.py:1132
-#: TurtleArtActivity.py:1193
+#: TurtleArtActivity.py:930 TurtleArtActivity.py:1132 TurtleArtActivity.py:1193
 msgid "Save as ODP"
 msgstr "ODP wakichatjama imaña"
 
-#: TurtleArtActivity.py:936 TurtleArtActivity.py:1144
-#: TurtleArtActivity.py:1205
+#: TurtleArtActivity.py:936 TurtleArtActivity.py:1144 TurtleArtActivity.py:1205
 msgid "Save as Python"
 msgstr "Python wakichatjama imaña"
 
-#: TurtleArtActivity.py:938 TurtleArtActivity.py:1172
-#: TurtleArtActivity.py:1211 turtleblocks.py:426
+#: TurtleArtActivity.py:938 TurtleArtActivity.py:1172 TurtleArtActivity.py:1211
+#: turtleblocks.py:426
 msgid "Add project"
 msgstr "Luräwi wakichata yapxataña"
 
